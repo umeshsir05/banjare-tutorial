@@ -1,4 +1,3 @@
-<?php include('db.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,57 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="css_contact.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="css_contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
             <h1>Banjare Tutorial</h1>
         </div>
-       <nav class="nav-menu">
-    <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
-        <li><a href="videos.html"><i class="fas fa-code"></i> C</a></li>
-        <li><a href="cpp.html"><i class="fas fa-laptop-code"></i> C++</a></li>
-        <li><a href="https://youtube.com/playlist?list=PLgu5MpHevfMiY1n733yJjbmWm6QjnfsP9&si=sVwJaTh4OGg7hEvY"><i class="fas fa-file-alt"></i> MS Office</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
-    </ul>
-</nav>
-
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="videos.html"><i class="fas fa-code"></i> C</a></li>
+                <li><a href="cpp.html"><i class="fas fa-laptop-code"></i> C++</a></li>
+                <li><a href="https://youtube.com/playlist?list=PLgu5MpHevfMiY1n733yJjbmWm6QjnfsP9&si=sVwJaTh4OGg7hEvY"><i class="fas fa-file-alt"></i> MS Office</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+            </ul>
+        </nav>
         <div class="menu-toggle">
             <span>&#9776;</span>
         </div>
     </header>
+
     <main>
         <h2>Contact Us</h2>
-        <form method="POST" action="contact.php">
-            <input type="text" name="name" placeholder="Your Name" required><br>
-            <input type="email" name="email" placeholder="Your Email" required><br>
-            <textarea name="message" placeholder="Your Message" required></textarea><br>
-            <button type="submit" name="submit">Submit</button>
-        </form>
-
-        <?php
-        if (isset($_POST['submit'])) {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $message = $_POST['message'];
-
-            $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$message')";
-            if ($conn->query($sql) === TRUE) {
-               echo "<script>alert('Thank you for contacting me!');</script>";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-        }
-        ?>
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> Mobile: <b>+91 9876543210</b></p>
+            <p><i class="fas fa-envelope"></i> Email: <b>umesh@example.com</b></p>
+        </div>
     </main>
+
     <footer>
-        <p>&copy; <b>2024 SpeakFluent. All rights reserved.Developed by Umesh Banjare</b></p>
+        <p>&copy; <b>2024 SpeakFluent. All rights reserved. Developed by Umesh Banjare</b></p>
     </footer>
 
     <script src="script.js"></script>
