@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banjare Tutorial Advanced Logo</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Floating Particles */
+.particles span{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  from{ transform:translateY(50vh) scale(0.4); opacity:1; }
+  to{ transform:translateY(-60vh) scale(1); opacity:0; }
+}
+
+/* Create 25 random particles */
+.particles span:nth-child(n){
+  left:calc(4% * var(--i));
+  animation-duration: calc(3s + var(--i) * 0.35s);
+  animation-delay: calc(var(--i) * -0.4s);
+}
+
+/* Rotating neon ring */
+.ring{
+  position:absolute;
+  width:380px;
+  height:380px;
+  border:6px solid rgba(0,150,255,0.6);
+  border-radius:50%;
+  animation:ringRotate 7s linear infinite;
+  filter:blur(3px) drop-shadow(0 0 35px #0088ff);
+}
+@keyframes ringRotate{
+  0%{ transform:rotate(0deg) scale(1); }
+  50%{ transform:rotate(180deg) scale(1.08); }
+  100%{ transform:rotate(360deg) scale(1); }
+}
+
+/* Main wrapper */
+.logo-box{
+  text-align:center;
+  animation:float 5.5s ease-in-out infinite;
+  position:relative;
+}
+@keyframes float{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-15px); }
+  100%{ transform:translateY(0); }
+}
+
+/* BT text with fire + depth */
+.bt{
+  font-size:150px;
+  font-weight:900;
+  letter-spacing:8px;
+  background:linear-gradient(45deg, #ff0000, #ff9900);
+  -webkit-background-clip:text;
+  color:transparent;
+  position:relative;
+  text-shadow:
+    5px 5px 0 #ffcc00,
+    10px 10px 0 #e69500,
+    0 0 25px rgba(255,80,0,0.9),
+    0 0 55px rgba(255,40,0,1);
+  animation:firePulse 2s ease-in-out infinite;
+}
+@keyframes firePulse{
+  0%{ filter:brightness(1); }
+  50%{ filter:brightness(1.45); }
+  100%{ filter:brightness(1); }
+}
+
+/* Electric sparks */
+.bt::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle, rgba(0,150,255,0.6), transparent 70%);
+  filter:blur(18px);
+  opacity:0.45;
+  animation:sparkPulse 1.5s infinite;
+}
+@keyframes sparkPulse{
+  0%,100%{ opacity:0.3; }
+  50%{ opacity:0.75; }
+}
+
+/* Shine line */
+.bt::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-150%;
+  width:45%;
+  height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
+  transform:skewX(-25deg);
+  animation:shine 3s ease-in-out infinite;
+}
+@keyframes shine{
+  0%{ left:-160%; }
+  50%{ left:140%; }
+  100%{ left:-160%; }
+}
+
+/* Banjare Tutorial text */
+.title{
+  font-size:45px;
+  margin-top:18px;
+  color:#4da6ff;
+  letter-spacing:3px;
+  font-weight:700;
+  animation:neonGlow 2.2s ease-in-out infinite;
+}
+@keyframes neonGlow{
+  0%{ text-shadow:0 0 12px #4da6ff; }
+  50%{ text-shadow:0 0 32px #4da6ff; }
+  100%{ text-shadow:0 0 12px #4da6ff; }
+}
+
+/* Position particles */
+.particles{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Background particles -->
+<div class="particles">
+  <!-- generate 25 particles -->
+  <script>
+    for(let i=1;i<=25;i++){
+      document.write(`<span style="--i:${i};"></span>`);
+    }
+  </script>
+</div>
+
+<!-- Neon rotating ring -->
+<div class="ring"></div>
+
+<!-- Main logo -->
+<div class="logo-box">
+  <div class="bt">BT</div>
+  <div class="title">Banjare Tutorial</div>
+</div>
+
+</body>
+</html>
