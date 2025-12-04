@@ -53,6 +53,21 @@
     50%{ left:130%; }
     100%{ left:-130%; }
   }
+.logo::before{
+  content:"";
+  position:absolute;
+  width:46px;
+  height:46px;
+  border:2px solid yellow;
+  border-radius:50%;
+  animation: ringRotate 3s linear infinite;
+  opacity:0.6;
+}
+
+@keyframes ringRotate{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
 </style>
 
 </head>
