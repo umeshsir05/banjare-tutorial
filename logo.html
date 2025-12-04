@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BT Logo 50x50</title>
+<title> Logo 50x50</title>
 
 <style>
   body{
@@ -48,20 +48,21 @@
     animation:shine 2.5s infinite;
   }
 
-  
+  @keyframes shine{
+    0%{ left:-130%; }
+    50%{ left:130%; }
+    100%{ left:-130%; }
+  }
 
-.logo::before{
-  content:"";
-  position:absolute;
-  width:46px;
-  height:46px;
-  border:2px solid yellow;
-  border-radius:50%;
-  animation: ringRotate 3s linear infinite;
-  opacity:0.6;
+
+.bt{
+  animation: bounce 1.4s infinite;
 }
 
-
+@keyframes bounce{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-4px); }
+}
 
 .bt{
   background: linear-gradient(90deg, yellow, orange, red, yellow);
@@ -75,42 +76,6 @@
   0%{ background-position:0%; }
   100%{ background-position:300%; }
 }
-
-.bt{
-  background: linear-gradient(90deg, yellow, orange, red, yellow);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: grad 3s linear infinite;
-  background-size:300%;
-}
-
-
-
-
-
-.logo::after{
-  content:"";
-  position:absolute;
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:yellow;
-  animation: spark 1.2s infinite;
-  opacity:0;
-}
-
-
-.logo::before{
-  content:"";
-  position:absolute;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background: radial-gradient(circle, yellow 10%, transparent 11%) 0 0 / 8px 8px repeat;
-  animation: rotateDots 2s linear infinite;
-}
-
-
 </style>
 
 </head>
